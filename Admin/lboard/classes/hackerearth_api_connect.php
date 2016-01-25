@@ -22,6 +22,7 @@ class api{
 
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+		curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, 0); //enables proxy
 		curl_setopt($ch, CURLOPT_URL,$this->_url);
 		curl_setopt($ch, CURLOPT_PROXY,$this->_proxy);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
