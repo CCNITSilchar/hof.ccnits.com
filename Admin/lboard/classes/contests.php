@@ -1,5 +1,5 @@
 <?php
-require '../core/config.php';
+
 class contest {
 	private $_db;
 
