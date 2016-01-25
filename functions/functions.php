@@ -21,18 +21,6 @@ function admin_panel($dbc,$id){
 	return $data;
 }
 
-function plot_graph(){
-		$id = 1;
-		$conn = mysqli_connect("localhost","root","priyapandu","nitscc");
-		$r = "SELECT * FROM contests WHERE userid = '$id'";
-		$q = mysqli_query($conn,$r);
-		$arr = mysqli_fetch_row($q);
-		$rating = array_slice($arr,2);
-		$res = json_encode($rating);
-		mysqli_close($conn);
-		return $res;
-}
-
 function give_title($rating){
 	if($rating >= 2900){
 		$title = array("Lengendary Grandmaster","rgb(255,0,0)");
