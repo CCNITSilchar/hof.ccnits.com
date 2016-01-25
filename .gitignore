@@ -3,3 +3,4 @@
 admin/config.php
 config/connection.php
 Admin/lboard/core/config.php
+Admin/config/connection.php

@@ -2,7 +2,7 @@
 <?php
 
 #Database Connection:
-$dbc = mysqli_connect('localhost','root','priyapandu','leaderboard') or die('Error: '.mysqli_connect_error());
+include 'connection.php';
 
 #Constants
 DEFINE('D_TEMPLATE','templates');
