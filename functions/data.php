@@ -47,4 +47,22 @@ function data_page($dbc){
             </ul>
 	<?php }
 	}
-?>
+	function color_table($dbc){
+		$q = "SELECT * FROM other_user_info ORDER BY id DESC";
+		$r = mysqli_query($dbc,$q);
+		while($row = mysqli_fetch_assoc($r)){ ?>
+        <tr><td><?php echo $row['range']; ?></td><td><span style="color:<?php echo $row['color']; ?>"><?php echo $row['title']; ?></span></td></tr>
+	<?php }
+	}
+	
+	function assign_color_title($dbc,$rating){
+		$q = "SELECT * FROM other_user_info";
+		$r = mysqli_query($dbc,$q);
+		while($row = mysqli_fetch_assoc($r)){ 
+				$arr = explode('-',$row['range']);
+				if($rating > $arr[0] && $rating < $arr[1]){
+					return array($row['title'],$row['color']);
+				}
+		}
+		
+	} ?>
