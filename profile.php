@@ -15,10 +15,10 @@
         <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default">
   		<div class="panel-body">
-        <!--<?php 
+        <?php 
 		$id = $_GET['id'];
 		profile_data($dbc,$id);
-		?>-->
+		?>
 		</div>
         </div>
 		</div>
