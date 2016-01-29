@@ -21,40 +21,6 @@ function admin_panel($dbc,$id){
 	return $data;
 }
 
-function give_title($rating){
-	if($rating >= 2900){
-		$title = array("Lengendary Grandmaster","rgb(255,0,0)");
-	}
-	else if($rating >=2600 && $rating < 2900) {
-		$title = array("International Grandmaster","rgb(255,0,0)");
-	}
-	else if($rating >=2400 && $rating < 2600) {
-		$title = array("Grandmaster","rgb(255,0,0)");
-	}
-	else if($rating >=2300 && $rating < 2400) {
-		$title = array("International master","#FF8C00");
-	}
-	else if($rating >=2200 && $rating < 2300) {
-		$title = array("Master","rgb(255, 140, 0)");
-	}
-	else if($rating >=1900 && $rating < 2200) {
-		$title = array("Candidate Master","#a0a");
-	}
-	else if($rating >=1600 && $rating < 1900) {
-		$title = array("Expert","rgb(0,0,255)");
-	}
-	else if($rating >= 1400 && $rating < 1600){
-		$title = array("Specialist","rgb(3, 168, 158)");
-	}
-	else if($rating >=1200 && $rating < 1400) {
-		$title = array("Pupil","rgb(0,128,0)");
-	}
-	else if($rating < 1200){
-		$title = array("Newbie","rgb(128, 128, 128)");
-	}
-	return $title;
-}
-
 function insert_data(){
 $i=0;
 $size=sizeof($curl_result['report']['completed_test']);
