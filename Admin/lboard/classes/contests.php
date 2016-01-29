@@ -22,13 +22,14 @@ class contest {
     			return 1;
 	}
 
-    public function add_contest($contest_id,$contest_type,$contest_date,$contest_link){
+    public function add_contest($contest_id,$contest_name,$contest_type,$contest_date,$contest_link){
         $this->_connect();
         $contest_id=$this->_db->real_escape_string($contest_id);
+		$contest_name=$this->_db->real_escape_string($contest_name);
         $contest_type=$this->_db->real_escape_string($contest_type);
 		$contest_link=$this->_db->real_escape_string($contest_link);
         $contest_date=$this->_db->real_escape_string($contest_date);
-        $query="INSERT into contest (he_id,type,link,date) VALUES ('".$contest_id."','".$contest_type."','".$contest_link."','".$contest_date."')";
+        $query="INSERT into contest (he_id,name,type,link,date) VALUES ('".$contest_id."','".$contest_name."','".$contest_type."','".$contest_link."','".$contest_date."')";
         $result=$this ->_db->query($query);
         if($this->_db->error==''){
                 if($this->_db->affected_rows){
