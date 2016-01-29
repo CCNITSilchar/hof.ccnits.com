@@ -1,15 +1,13 @@
 <?php
 $arr = array();
 $id = $_GET['id']; 
-$q = "SELECT rating FROM contest_user_rating WHERE uid = $id";
-$r = mysqli_query($dbc,$q);
-$num = mysqli_num_rows($r);
-$i = 0;
-while($row = mysqli_fetch_assoc($r)){
-	$arr[$i] = (int)$row['rating'];
+$data = array();
+$q = mysqli_query($dbc,"SELECT contest.date,contest.name,contest_user_rating.rating FROM contest INNER JOIN contest_user_rating ON contest.id=contest_user_rating.cid WHERE contest_user_rating.uid = $id");
+$i = 1;
+while($row = mysqli_fetch_assoc($q)){
+	$data[]=array('x'=> $i,'y'=>(int)$row['rating'],'event'=>$row['name']);
 	$i++;
-}
-$res = json_encode($arr);
+	}
 ?>
 
 <script>
@@ -24,6 +22,13 @@ $(function () {
         },
         subtitle: {
             text: ''
+        },
+		xAxis: {
+            lineWidth:0,
+			lineColor:'transparent',
+			labels:{
+				enabled: false
+			}
         },
         yAxis: {
             title: {
@@ -41,42 +46,42 @@ $(function () {
                 from: 1200,
                 to: 1400,
                 color: 'rgba(0,128, 0, 0.9)'
-            }, { // Gentle breeze
+            }, { // Specialist
                 from: 1400,
                 to: 1600,
                 color: 'rgba(3,168,158,0.5)',
                 
-            }, { // Moderate breeze
+            }, { // Expert
                 from: 1600,
                 to: 1900,
                 color: 'rgba(0, 0, 255, 0.5)',
                 
-            }, { // Fresh breeze
+            }, { // Candidate Master
                 from: 1900,
                 to: 2200,
                 color: 'rgba(170,0,170,0.5)',
                
-            }, { // Strong breeze
+            }, { // Master
                 from: 2200,
                 to: 2300,
                 color: 'rgba(255, 140, 0, 0.5)',
                
-            }, { // High wind
+            }, { // International Master
                 from: 2300,
                 to: 2400,
                 color: 'rgba(255, 140,0, 0.6)',
                 
-            },{ // Strong breeze
+            },{ // Grandmaster
                 from: 2400,
                 to: 2600,
                 color: 'rgba(255,0, 0, 0.4)',
                 
-            },{ // Strong breeze
+            },{ // International Grandmaster
                 from: 2600,
                 to: 2900,
                 color: 'rgba(255, 0, 0, 0.6)',
                 
-            },{ // Strong breeze
+            },{ // Lengendary Grandmaster
                 from: 2900,
                 to: 3300,
                 color: 'rgba(255, 0, 0,1)',
@@ -84,13 +89,16 @@ $(function () {
             }]
         },
         tooltip: {
-           
+           	formatter: function() {
+        		return '</b> '+this.y+'<br/>'+this.point.options.event+'</b>';
+    }
         },
         plotOptions: {
 					series: {
-					 dataLabels: {
-						color: '#FFFFFF'
-					 },
+						name: 'Fuck u',
+						dataLabels: {
+							color: '#FFFFFF'
+						},
 					 marker: {
 						lineColor: '#FFFFFF'
 					 }
@@ -106,13 +114,13 @@ $(function () {
                 marker: {
                     enabled: true
                 },
-                pointInterval: 3600000, // one hour
-                pointStart: Date.UTC(2015, 4, 31, 0, 0, 0)
+				pointInterval: 3600000*24*7, // one hour
+                pointStart: Date.UTC(2015, 12, 6)
             }
         },
         series: [{
-            name: 'Hestavollane',
-            data: <?php echo $res; ?>
+            name: '',
+            data: <?php echo json_encode($data); ?>
 
         }],
         navigation: {
