@@ -73,7 +73,7 @@ function data_page($dbc){
 		$r = mysqli_query($dbc,$q);
 		while($row = mysqli_fetch_assoc($r)){ 
 				$arr = explode('-',$row['range']);
-				if($rating > $arr[0] && $rating < $arr[1]){
+				if($rating >= $arr[0] && $rating <= $arr[1]){
 					return array($row['title'],$row['color']);
 				}
 		}
