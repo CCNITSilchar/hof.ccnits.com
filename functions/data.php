@@ -30,18 +30,19 @@ function archived_contests($dbc){
 function data_page($dbc){
 	$r = "SELECT id,name,rating FROM user ORDER BY rating DESC";
 	$q = mysqli_query($dbc,$r);
-	$num = mysqli_num_rows($q); ?>
+	$num = mysqli_num_rows($q); 
+	$i = 1;?>
     <table class="table table-bordered">
-	<tr><td><b>User</b></td><td><b>Rating</b></td></tr>
+	<tr><td><b>Rank</b></td><td><b>Coder</b></td><td><b>Rating</b></td></tr>
 	<?php while($row = mysqli_fetch_assoc($q)){ 
 			$arr = assign_color_title($dbc,$row['rating']);
 			?>
     	
-    		<tr class="data"><td><a title="<?php echo $arr[0]; ?>" href="profile.php?id=<?php echo $row['id'];?>" style="color:<?php echo $arr[1]; ?>"><?php echo $row['name']?></a></td><td id="rating"><?php echo $row['rating']?></td></tr>
+    		<tr class="data"><td><?php echo $i; ?></td><td><a title="<?php echo $arr[0]; ?>" href="profile.php?id=<?php echo $row['id'];?>" style="color:<?php echo $arr[1]; ?>"><?php echo $row['name']?></a></td><td id="rating"><?php echo $row['rating']?></td></tr>
     		
         
 		
-	<?php } ?> </table>
+	<?php $i++;} ?> </table>
 <?php }
 
 //for profile data
