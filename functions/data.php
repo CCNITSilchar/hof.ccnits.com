@@ -38,7 +38,7 @@ function data_page($dbc){
 			$arr = assign_color_title($dbc,$row['rating']);
 			?>
     	
-    		<tr class="data"><td><?php echo $i; ?></td><td><a title="<?php echo $arr[0]; ?>" href="profile.php?id=<?php echo $row['id'];?>" style="color:<?php echo $arr[1]; ?>"><?php echo $row['name']?></a></td><td id="rating"><?php echo $row['rating']?></td></tr>
+    		<tr class="data"><td><?php echo $i; ?></td><td><a title="<?php echo $arr[0]; ?>" href="profile.php?id=<?php echo $row['id'];?>" style="color:<?php echo $arr[1]; ?>"><?php echo ucwords($row['name']);?></a></td><td id="rating"><?php echo $row['rating']?></td></tr>
     		
         
 		
