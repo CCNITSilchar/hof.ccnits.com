@@ -4,7 +4,7 @@
 <!doctype html>
 <html>
 <head>
-<title>CCNITS | Leaderboard</title>
+<title>CCNITS | Contests</title>
 	<meta name="viewport" content="width=deice-width,initial-scale=1.0">
 
 <?php include('config/css.php'); ?>
