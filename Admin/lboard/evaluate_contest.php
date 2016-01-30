@@ -1,6 +1,6 @@
 <?php
 //including configuration
-require_once 'core/config.php';
+require_once '../../config/connection.php';
 
 //including classes 
 include 'classes/coders_basic.php';
