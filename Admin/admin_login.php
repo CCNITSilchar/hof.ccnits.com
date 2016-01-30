@@ -2,7 +2,7 @@
 
 <?php
 	session_start();
-	include('config/connection.php');
+	include('../config/connection.php');
 
 	if($_POST){
 		$q = "SELECT * FROM admin WHERE username = '$_POST[username]' AND password = '$_POST[password]'";
