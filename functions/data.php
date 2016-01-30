@@ -1,26 +1,26 @@
 <?php
 //for upcoming events
 function upcoming_contests($dbc){
-	$r = "SELECT he_id,date,link FROM contest";
+	$r = "SELECT name,date,link FROM contest";
 	$q = mysqli_query($dbc,$r); ?>
      <table class="table table-bordered">
 	<tr><td><b>Upcoming Contests</b></td></tr>
 	<?php while($row = mysqli_fetch_assoc($q)){
 			if(!date_algo($row['date'])){?>
-			<tr><td><a href="<?php echo $row['link']; ?>"><?php echo $row['he_id']; ?></a></td></tr>
+			<tr><td><a href="<?php echo $row['link']; ?>"><?php echo $row['name']; ?></a></td></tr>
 		<?php }
 	 }
 }
 
 //archived events
 function archived_contests($dbc){
-	$r = "SELECT he_id,date,link FROM contest";
+	$r = "SELECT name,date,link FROM contest";
 	$q = mysqli_query($dbc,$r); ?>
      <table class="table table-bordered">
 	<tr><td><b>Archived Contests</b></td></tr>
 	<?php while($row = mysqli_fetch_assoc($q)){
 		if(date_algo($row['date'])){?>
-			<tr><td><a href="<?php echo $row['link']; ?>"><?php echo $row['he_id']; ?></a></td></tr>
+			<tr><td><a href="<?php echo $row['link']; ?>"><?php echo $row['name']; ?></a></td></tr>
 		<?php 
 		}
 	 }
