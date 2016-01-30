@@ -53,7 +53,7 @@ function data_page($dbc){
 		$arr = assign_color_title($dbc,$row['rating']);?>
 			<ul class="user_info">
             <li><div class="title" style="color:<?php echo $row['Color']; ?>"><span><?php echo $arr[0]; ?></span></div></li>
-			<li><div class="name" style="color:<?php echo $row['Color']; ?>"><span><?php echo $row['name']; ?></span></div></li>
+			<li><div class="name" style="color:<?php echo $row['Color']; ?>"><span><?php echo ucwords($row['name']); ?></span></div></li>
             <li><div class="rating"><span>Contest Rating:</span><span style="color:<?php echo $arr[1]; ?>"><?php echo $row['rating']; ?></span></li>
             </ul>
 	<?php 
