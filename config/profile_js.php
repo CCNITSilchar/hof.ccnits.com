@@ -2,7 +2,8 @@
 $arr = array();
 $id = $_GET['id']; 
 $data = array();
-$q = mysqli_query($dbc,"SELECT contest.date,contest.name,contest_user_rating.rating FROM contest INNER JOIN contest_user_rating ON contest.id=contest_user_rating.cid WHERE contest_user_rating.uid = $id");
+$r = "SELECT contest.date,contest.name,contest_user_rating.rating FROM contest INNER JOIN contest_user_rating ON contest.id=contest_user_rating.cid WHERE contest_user_rating.uid = $id";
+$q = mysqli_query($dbc,$r);
 $i = 1;
 while($row = mysqli_fetch_assoc($q)){
 	$data[]=array('x'=> $i,'y'=>(int)$row['rating'],'event'=>$row['name']);
@@ -49,7 +50,7 @@ $(function () {
             }, { // Specialist
                 from: 1400,
                 to: 1600,
-                color: 'rgba(3,168,158,0.5)',
+                color: 'rgba(0,225,0,0.7)',
                 
             }, { // Expert
                 from: 1600,
@@ -78,14 +79,9 @@ $(function () {
                 
             },{ // International Grandmaster
                 from: 2600,
-                to: 2900,
+                to: 3500,
                 color: 'rgba(255, 0, 0, 0.6)',
                 
-            },{ // Lengendary Grandmaster
-                from: 2900,
-                to: 3300,
-                color: 'rgba(255, 0, 0,1)',
-               
             }]
         },
         tooltip: {
