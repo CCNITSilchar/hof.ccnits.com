@@ -108,8 +108,13 @@ table{
 	margin-right:80px;
 }
 
-.text{
+.highcharts-button{
 	display:none;
 }
+
+.highcharts-legend-item{
+	display:none;
+}
+
 
 </style>
