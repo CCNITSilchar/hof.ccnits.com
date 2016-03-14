@@ -25,6 +25,13 @@ if(!isset($_SESSION['username'])){
    </span>
   </div>
   <div class="form-group">
+    <label for="InputUsername1">Contest's Name</label>
+    <input type="text" name="contest_name" class="form-control" id="username" placeholder="Contest's Name"></input>
+   <span class="field-validation-error" data-valmsg-for="Username" data-valmsg-replace="true">
+   <span for="Username" generated="true" class="error_text"></span>
+   </span>
+  </div>
+  <div class="form-group">
     <label for="InputUsername1">Contest's Link</label>
     <input type="text" name="contest_link" class="form-control" id="username" placeholder="Contest's link of the event"></input>
    <span class="field-validation-error" data-valmsg-for="Username" data-valmsg-replace="true">
