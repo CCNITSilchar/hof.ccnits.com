@@ -17,16 +17,16 @@ if(!isset($_SESSION['username'])){
 <div class="col-md-6 col-md-offset-3">
 <div class="add_event">
 <form method="POST" action="../lboard/add_contest.php">
-  <div class="form-group">
-    <label for="InputUsername1">Date</label>
-    <input type="date" name="contest_date" class="form-control" id="username" placeholder="Date of the Contest"></input>
+<div class="form-group">
+    <label for="InputUsername1">Name</label>
+    <input type="text" name="contest_name" class="form-control"  placeholder="Name of the Contest"></input>
    <span class="field-validation-error" data-valmsg-for="Username" data-valmsg-replace="true">
    <span for="Username" generated="true" class="error_text"></span>
    </span>
   </div>
   <div class="form-group">
-    <label for="InputUsername1">Contest's Name</label>
-    <input type="text" name="contest_name" class="form-control" id="username" placeholder="Contest's Name"></input>
+    <label for="InputUsername1">Date</label>
+    <input type="date" name="contest_date" class="form-control" id="username" placeholder="Date of the Contest"></input>
    <span class="field-validation-error" data-valmsg-for="Username" data-valmsg-replace="true">
    <span for="Username" generated="true" class="error_text"></span>
    </span>
@@ -57,33 +57,8 @@ if(!isset($_SESSION['username'])){
  </div>
  </div>
  </div>
- <?php
-if(isset($_POST['event'])){
-	$he_id = $_POST['he_id'];
-	$date = $_POST['date'];
-	$name = $_POST['name'];
-	$link = $_POST['link'];
-	$status = $_POST['status'];
-	$q = "INSERT INTO contests(id,HE_contest_id,date,name,link,status) values ('',$he_id,'$date','$name','$link',$status)";
-	$feedback = mysqli_query($dbc,$q);
-?>
-<br>
- <div class="row">
-<div class="col-md-6 col-md-offset-3">
-<div class="panel panel-default">
-  		<div class="panel-body">
-        <?php
-			if($feedback){
-				echo "The event has been entered";
-			}else{
-				echo "TRY AGAIN";
-			}
-}
-		?>
-        </div>
-        </div>
-</div>
-</div>
+
+ 
 
 
 
