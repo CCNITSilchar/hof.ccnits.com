@@ -9,6 +9,14 @@ class data{
 		return $result['report']['completed_test'][$index]['candidate_name'];
 	}
 
+	public function email($result,$index){
+		return $result['report']['completed_test'][$index]['email'];
+	}
+
+	public function institute($result){
+		return strtolower($result['candidate_report']['institute']);
+	}
+	
 	public function coders_participated($result){
 		return sizeof($result['report']['completed_test']);
 	}
