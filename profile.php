@@ -37,7 +37,6 @@
         </div>
         </div>
         </div>
-        <?php #include('config/js.php'); ?> 
         
 </body>
 </html>
