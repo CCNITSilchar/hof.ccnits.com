@@ -1,7 +1,7 @@
 <?php
 //including configuration
 ini_set('max_execution_time', 900);
-require_once '../config/connection.php';
+require_once '../../config/connection.php';
 
 //including classes 
 include 'classes/coders_basic.php';
